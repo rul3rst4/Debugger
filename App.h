@@ -1,22 +1,22 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-#include <imgui-SFML.h>
-#include "imgui.h"
-#include "imgui-SFML.h"
 #include "json.hpp"
+#include "GUI.cpp"
+#include "SysManager.cpp"
 
 
-class App
+class App : public System::Task
 {
 public:
 	App();
 	void update();
 	void render();
 	void update_event();
-	void run();
+	void run() override;
 
 private:
 	sf::RenderWindow window;
 	nlohmann::json config;
+	GUI ui;
 };
 
